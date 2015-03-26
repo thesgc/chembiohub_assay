@@ -1,22 +1,42 @@
-<div class="row">
+<!-- <div class="row">
 	<div class="alert alert-info">
-		<p><strong>Register your assays here</strong><br/></p>
+		<p><strong>Register your experiment information here</strong><br/></p>
 	</div>
-</div>
+</div> -->
 
 <!-- TODO - implement better l&f to file upload result - alert to say it's completed etc? Should be examples in flowjs docs -->
 
 
+<ul class="nav nav-tabs">
+
+
+<li ng-repeat="tab in assayDataModel.experimentForm[0].tabs"  ng-click="$event.preventDefault() || (selected.tab = $index)" ng-class="{active: selected.tab === $index}"  role="button" tabindex="$index"><a href="#">{{tab.title}}</a>
+</li>
+</ul>
+
+<div class = "tab-content">
+<div class="tab-pane"  ng-repeat="tab in assayDataModel.experimentForm[0].tabs" ng-show="selected.tab === $index" ng-class="{active: selected.tab === $index}" >
 <div class="row">
-	<div class="col-sm-12">
-		<div class="box-body">
-          <div sf-schema="dataModel.schema" sf-form="dataModel.form" sf-model="assay.model"></div>
+    <div class="col-sm-12">
+    <form name="roleForm">
+        <div class="box-body">
+          <div sf-schema="assayDataModel.schema" sf-form="tab.items" sf-model="assay.model"></div>
         </div>
-	</div>
-	
+        <div class="row">
+        <div class="pull-right" ng-show="!$last">
+
+ <a type="button"  class="btn btn-primary"  ng-disabled="" ng-click="selected.tab = $index +1 " >Next</a>
+        </div>
+    </div>
+    </form>
+    </div>
 </div>
 
-	<div ng-show="filesInProcessing" class="col-centered bubblingG">
+</div>
+</div>
+
+
+	<!-- <div ng-show="filesInProcessing" class="col-centered bubblingG">
               <span id="bubblingG_1">
               </span>
               <span id="bubblingG_2">
@@ -24,4 +44,4 @@
               <span id="bubblingG_3">
               </span>
 	</div>
-	
+	 -->

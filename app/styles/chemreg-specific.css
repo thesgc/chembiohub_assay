@@ -158,3 +158,85 @@ i {
 ul.dropdown-menu.ng-valid-date {
   width:270px;
 }
+
+
+
+
+/* CodeMirror */
+
+.CodeMirror {
+ -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    height: 210px;
+    padding: 2px;
+    font-size: 14px;
+    line-height: 1.42857143;
+
+}
+.fade {
+opacity: 0;
+-webkit-transition: opacity 2.25s linear;
+  -moz-transition: opacity 2.25s linear;
+   -ms-transition: opacity 2.25s linear;
+  -o-transition: opacity 2.25s linear;
+     transition: opacity 2.25s linear;
+}
+/*ul.tabs-left li.active {
+  background-color: lightcyan !important;
+} */
+
+ul.nav-tabs li a, ul.tabs-left li  a  {
+  color: grey;
+} 
+ul.tabs-left li:last-child a {
+color: black ;
+}
+/*
+.CodeMirror-activeline {
+  color: #333;
+}
+
+.CodeMirror-activeline-background {
+  background: rgba(68, 204, 164, 0.18) !important;
+}
+
+pre.CodeMirror-placeholder {
+  color: #999;
+}
+
+.CodeMirror.highlight {
+  opacity: .5;
+}
+
+.CodeMirror-gutters {
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+}
+
+.CodeMirror-linenumber {
+  color: #bbb;
+}
+
+.CodeMirror-focused {
+
+}
+
+.CodeMirror-code div:first-child pre{
+  font-weight: bold;
+}
+
+.CodeMirror .line-error .CodeMirror-linenumber {
+  color: #f00;
+}
+
+.CodeMirror .line-error {
+  background-color: #FFF3B8;
+  color: #3F403F;
+}
+*/

@@ -185,6 +185,7 @@ angular.module('chembiohubAssayApp')
             url: '/intro',
             templateUrl: 'views/assay-add-first.html',
             controller: function($scope) {
+              $scope.selected = { tab: 0};
 
               // $scope.wizard.step = 0;
               // $scope.wizard.dynamic = 0;
@@ -193,14 +194,15 @@ angular.module('chembiohubAssayApp')
             }
         })
 
-        .state('projects.project.demo.add', {
-            url: '/add',
-            templateUrl: 'views/demo-add.html',
+        .state('projects.project.assay_add.protocol', {
+            url: '/protocol',
+            templateUrl: 'views/assay-add-protocol.html',
             controller: function($scope) {
-              // $scope.wizard.step = 1;
-              // $scope.wizard.dynamic = 41;
-              // applyTicks("add");
 
+              // $scope.wizard.step = 0;
+              // $scope.wizard.dynamic = 0;
+              // $scope.wizard.totalSteps = 0;
+              // applyTicks("intro");
             }
         })
 

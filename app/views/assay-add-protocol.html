@@ -1,0 +1,41 @@
+<!-- <div class="row">
+	<div class="alert alert-info">
+		<p><strong>Register your assay protocol here</strong><br/></p>
+	</div>
+</div>
+ -->
+<!-- TODO - implement better l&f to file upload result - alert to say it's completed etc? Should be examples in flowjs docs -->
+
+
+<div class="row">
+	<div class="col-sm-12">
+	<div class="form-group">
+            <label class="control-label">
+                {{assayDataModel.schema.properties.assay_protocol_steps.title}}
+            </label>
+            <textarea ui-codemirror ui-codemirror-opts="codeMirrorOptions" ng-model="assay.model.assay_protocol_steps"></textarea>
+    </div>
+	<form name="roleForm">
+		<div class="box-body">
+          <div sf-schema="assayDataModel.schema" sf-form="assayDataModel.protocolForm" sf-model="assay.model"></div>
+        </div>
+    </form>
+	</div>
+	
+</div>
+<div class="row">
+		<div class="pull-right">
+<!-- 			<a role="button" class="btn btn-danger" ng-click="startAgain()" ui-sref="projects.project.demo.intro">Cancel</a>
+ -->			<button class="btn btn-primary"  id="submit" ng-disabled="" ui-sref="projects.project.assay_add.protocol" value="Next"></button>
+		</div>
+	</div>
+
+	<!-- <div ng-show="filesInProcessing" class="col-centered bubblingG">
+              <span id="bubblingG_1">
+              </span>
+              <span id="bubblingG_2">
+              </span>
+              <span id="bubblingG_3">
+              </span>
+	</div>
+	 -->

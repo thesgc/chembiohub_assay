@@ -20,6 +20,10 @@ var configuration = {"cbh_batch_upload":
 
 };
 
+
+
+
+
 angular.module('chembiohubAssayApp').value('urlConfig',  
   configuration
 );
