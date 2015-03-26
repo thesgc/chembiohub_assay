@@ -153,16 +153,16 @@ angular.module('chembiohubAssayApp')
             }
         })
 
-        .state('projects.add', {
-            url: '/add',
-            templateUrl: 'views/projects-add.html',
-            controller: function($rootScope){
-              $rootScope.headline = "Add a new Project"
-              $rootScope.subheading = ""
-              $rootScope.help_lookup = ""
-              $rootScope.glyphicon = "folder-open";
-            }
-        })
+        // .state('projects.add', {
+        //     url: '/add',
+        //     templateUrl: 'views/projects-add.html',
+        //     controller: function($rootScope){
+        //       $rootScope.headline = "Add a new Project"
+        //       $rootScope.subheading = ""
+        //       $rootScope.help_lookup = ""
+        //       $rootScope.glyphicon = "folder-open";
+        //     }
+        // })
 
 
 
@@ -185,10 +185,11 @@ angular.module('chembiohubAssayApp')
             url: '/intro',
             templateUrl: 'views/assay-add-first.html',
             controller: function($scope) {
-              $scope.wizard.step = 0;
-              $scope.wizard.dynamic = 0;
-              $scope.wizard.totalSteps = 0;
-              applyTicks("intro");
+
+              // $scope.wizard.step = 0;
+              // $scope.wizard.dynamic = 0;
+              // $scope.wizard.totalSteps = 0;
+              // applyTicks("intro");
             }
         })
 
@@ -196,131 +197,15 @@ angular.module('chembiohubAssayApp')
             url: '/add',
             templateUrl: 'views/demo-add.html',
             controller: function($scope) {
-              $scope.wizard.step = 1;
-              $scope.wizard.dynamic = 41;
-              applyTicks("add");
+              // $scope.wizard.step = 1;
+              // $scope.wizard.dynamic = 41;
+              // applyTicks("add");
 
             }
         })
 
-        .state('projects.project.demo.add.single', {
-            url: '/single',
-            templateUrl: 'views/demo-add-single.html',
-            controller: function($scope) {
-
-                $scope.wizard.step = 1;
-                $scope.wizard.dynamic = 49.5;
-                //only need 2 wizard steps if this is the case
-                $scope.wizard.totalSteps = 2;
-
-                
-
-                $scope.errors = [];
-
-                $scope.stereochem_options = [{ name:'-1', value:'as drawn'},
-                                            { name:'6', value:'achiral',}, 
-                                            { name:'7', value:'racemic',}, 
-                                            { name:'8', value:'single enantiomer of known absolute configuration'},
-                                            { name:'9', value:'single enantiomer of unknown absolute configuration'},
-                                            { name:'10', value:'single diastereoisomer of known absolute configuration'},
-                                            { name:'11', value:'single diastereoisomer of unknown absolute configuration'},
-                                            { name:'12', value:'meso'},
-                                            { name:'13', value:'E'},
-                                            { name:'14', value:'Z'},
-                                            { name:'15', value:'mixture E/Z'},
-                                            { name:'16', value:'cis'},
-                                            { name:'17', value:'trans'},
-                                            { name:'18', value:'mixture of diastereoisomers'}
-                                            ];
-                //default selection set in the scope molecule object, select box value bound to form.                                           
-                
-                $scope.sketchMolfile = "";
-     
-                $scope.open_warnings = false;
-                
-            }
-        })
-
-        .state('projects.project.demo.add.multiple', {
-            url: '/multiple',
-            templateUrl: 'views/demo-add-multiple.html',
-            controller: function($scope) {
-              $scope.filedata.flow.files=[];
-              $scope.startAgain();
-              $scope.wizard.step = 1;
-              $scope.wizard.dynamic = 41;
-              $scope.wizard.totalSteps = 4;
-
-              
-            }
-        })
-
-        .state('projects.project.demo.map', {
-            url: '/map',
-            templateUrl: 'views/demo-map.html',
-            controller: function($scope) {
-              $scope.wizard.step = 2;
-              $scope.wizard.dynamic = 58;
-
-              applyTicks("map");
-            }
-        })
-
-        .state('projects.project.demo.map.file', {
-            url: '/map-file',
-            templateUrl: 'views/demo-map-file.html',
-            controller: function($scope) {
-              
-            }
-        })
-        .state('projects.project.demo.map.multiple', {
-            url: '/map-multiple',
-            templateUrl: 'views/demo-map-multiple.html',
-            controller: function($scope) {
-
-            }
-        })
-        // url will be /form/interests
-        .state('projects.project.demo.validate', {
-            url: '/validate',
-            templateUrl: 'views/demo-validate.html',
-            controller: function($scope) {
-              $scope.wizard.step = 3;
-              $scope.wizard.dynamic = 74;
-              applyTicks("validate");
-            }
-        })
-
-
-        
-        // url will be /form/payment
-        .state('projects.project.demo.finish', {
-            url: '/finish&limit&offset',
-            views: {
-              '': {
-                templateUrl: 'views/demo-finish.html',
-                controller: function($scope) {
-
-                  if ($scope.wizard.totalSteps == 4) {
-                    $scope.wizard.step = 4;
-                  }
-                  else {
-                    $scope.wizard.step = 2;
-                  }
-                  
-                  $scope.wizard.dynamic = 90.5;
-                  applyTicks("finish");
-
-                }
-              },
-              'resultslist@projects.project.demo.finish': {
-                templateUrl: 'views/templates/compound-grid.html',
-                controller: 'BatchesCtrl',
-              },
-
-            }
-            
-        })
+      
+       
 
         .state("Default", {
           /*url: '/',

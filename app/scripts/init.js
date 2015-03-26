@@ -17,5 +17,6 @@ angular.module('chembiohubAssayApp', [
     'flow',
     'ngClipboard',
     'ngRaven',
-
+    'schemaForm',
+    'ui.select', 
   ])
