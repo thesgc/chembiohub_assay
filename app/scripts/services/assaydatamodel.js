@@ -88,30 +88,16 @@
                       "type": "string",
                       "format": "uiselect",
                       "items": [
-                          {
-                              "value": "D",
-                              "label": "Direct protein target assigned"
-                          },
-                          {
-                              "value": "H",
-                              "label": "Homologous protein target assigned"
-                          },
-                          {
-                              "value": "M",
-                              "label": "Molecular target other than protein assigned"
-                          },
-                          {
-                              "value": "N",
-                              "label": "Non-molecular target assigned"
-                          },
-                          {
-                              "value": "S",
-                              "label": "Subcellular target assigned"
-                          },
-                          {
-                              "value": "U",
-                              "label": "Unknown"
-                          }
+                           {"value":0,"description":"Default value - Target unknown or has yet to be assigned","label":"Unassigned"},
+                           {"value":1,"description":"Target assigned is non-molecular","label":"Non-molecular"},
+                           {"value":2,"description":"Target assigned is subcellular fraction","label":"Subcellular fraction"},
+                           {"value":3,"description":"Target assigned is molecular non-protein target","label":"Molecular (non-protein)"},
+                           {"value":4,"description":"Multiple homologous protein targets may be assigned","label":"Multiple homologous proteins"},
+                           {"value":5,"description":"Multiple direct protein targets may be assigned","label":"Multiple proteins"},
+                           {"value":6,"description":"Homologous protein complex subunits assigned","label":"Homologous protein complex"},
+                           {"value":7,"description":"Direct protein complex subunits assigned","label":"Protein complex"},
+                           {"value":8,"description":"Homologous single protein target assigned","label":"Homologous protein"},
+                           {"value":9,"description":"Direct single protein target assigned","label":"Protein"}
                       ]
                   },
                   "assay_related_info_ref": {
@@ -189,31 +175,64 @@
                           }
                       }
                   },
+                  "bioactivity_standard" : {
+                                          "title": "Standard being measured",
+                                          "type": "string",
+                                          "format": "uiselect",
+                                          "description": "What does this assay measure?",
+                                          "items" : [
+                                            {"value": "value", "label": "label"}
+                                          ]
+                                      },
+                  "bioactivity_non_standard_units": {
+                                          "title": "Non standard units",
+                                          "type": "string",
+                                          "description": "Enter the non standard units if used"
+                                      },
                   "bioactivities":{
                       "title": "Add bioactivities for each compound that was added in the materials section",
                       "type": "object",
                       "properties": {
                           "activities": {
+                              "title": "Bioactivities by Compound",
                               "type": "array",
                               "items": {
                                   "type": "object",
                                   "properties": {
-                                      "standard": {
-                                          "title": "Standard being meaqsured",
-                                          "type": "string",
-                                          "description": "What does this assay measure?"
-                                      },
-                                      "value": {
-                                          "title": "Value",
+                                      "compound_uox_id" : {
+                                        "title": "UOX ID for Compound",
                                           "type": "number",
-                                          "description": "What is the value?"
+                                          "description": "Your compounds must be registered in order to use the assay registration system."
                                       },
-                                      "units": {
-                                          "title": "Value",
+                                      "bioactivity_value": {
+                                          "title": "Bioactivity Value for Compound",
                                           "type": "number",
-                                          "description": "What are the units?"
-                                      }
+                                          "description": "What is the bioactivity value?"
+                                      },
+                                      "smiles": {
+                                          "title": "Smiles String for Compound",
+                                          "type": "number",
+                                          "description": "Smiles string - for testing purposes"
+                                      },
+                                      // "data_quality_star_rating":{
+                                        
+                                      //   "description" : "Scientist's assesment of the quality of the data as a star rating"
 
+                                      // }
+                                      "data_quality_comments": {
+                                          "title" : "Data Quality Comments",
+                                          "type": "string",
+                                          "format": "uiselect",
+                                          "items": [],
+                                          "description" : "Scientist's assesment of the quality of the data"
+                                      },
+                                      "data_quality_measurements": {
+                                          "title" : "Measures of fit and data quality",
+                                          "type": "string",
+                                          "format": "uiselect",
+                                          "items": [],
+                                          "description": "Enter in the format p-value=0.13, hill=1.3, control SD=0.45 - whichever values are appropriate to the assay."
+                                      }
                                   }
                               }
                           }
@@ -265,7 +284,9 @@
           taggingLabel: '(adding new)',
           taggingTokens: ',',
        }
-     }
+     },
+      "bioactivity_standard",
+          "bioactivity_non_standard_units",
     ]
 
     },{
@@ -298,6 +319,68 @@
         }
       ]
 
+    },{
+      title: "Bioactivities",
+      items: [
+         
+            {
+            "key" : "activities",
+           "title": "Bioactivities by Compound",
+           "type" : "tabarray",
+            "items": [ 
+
+
+            {"key": "activities[].compound_uox_id" , 
+                "type":  schema.properties.bioactivities.properties.activities.items.properties.compound_uox_id.type, 
+                "title" : schema.properties.bioactivities.properties.activities.items.properties.compound_uox_id.title, 
+                "description": schema.properties.bioactivities.properties.activities.items.properties.compound_uox_id.description},
+             {"key": "activities[].bioactivity_value" , 
+                "type":  schema.properties.bioactivities.properties.activities.items.properties.bioactivity_value.type, 
+                "title" : schema.properties.bioactivities.properties.activities.items.properties.bioactivity_value.title, 
+                "description": schema.properties.bioactivities.properties.activities.items.properties.bioactivity_value.description},
+            {"key": "activities[].smiles" , 
+                "type":  schema.properties.bioactivities.properties.activities.items.properties.smiles.type, 
+                "title" : schema.properties.bioactivities.properties.activities.items.properties.smiles.title, 
+                "description": schema.properties.bioactivities.properties.activities.items.properties.smiles.description},
+            {"key": "activities[].data_quality_comments" , 
+                "type":  schema.properties.bioactivities.properties.activities.items.properties.data_quality_comments.type, 
+                "title" : schema.properties.bioactivities.properties.activities.items.properties.data_quality_comments.title, 
+                "description": schema.properties.bioactivities.properties.activities.items.properties.data_quality_comments.description,
+                "format":  schema.properties.bioactivities.properties.activities.items.properties.data_quality_comments.format ,
+                options: {
+                  tagging: function(content){
+                      var item = {
+                        value: content,
+                        label: content,
+                      }
+                      return item;
+                  } ,
+                  taggingLabel: '(adding new)',
+                  taggingTokens: ',',
+               },
+                "items" :  schema.properties.bioactivities.properties.activities.items.properties.data_quality_comments.items},
+            {"key": "activities[].data_quality_measurements" , 
+                "type":  schema.properties.bioactivities.properties.activities.items.properties.data_quality_measurements.type, 
+                "title" : schema.properties.bioactivities.properties.activities.items.properties.data_quality_measurements.title, 
+                "description": schema.properties.bioactivities.properties.activities.items.properties.data_quality_measurements.description,
+                "format" : "uiselect" ,
+                options: {
+                  tagging: function(content){
+                      var item = {
+                        value: content,
+                        label: content,
+                      }
+                      return item;
+                  } ,
+                  taggingLabel: '(adding new)',
+                  taggingTokens: ',',
+               },
+                "items" : schema.properties.bioactivities.properties.activities.items.properties.data_quality_measurements.items}
+            ]
+         }
+         
+      ]
+
     }
 
     ]}
@@ -305,6 +388,7 @@
 
   ];
 
+ 
 
 
     

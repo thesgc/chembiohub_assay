@@ -19,6 +19,7 @@ angular.module('chembiohubAssayApp', [
     'ngClipboard',
     'ngRaven',
     'schemaForm', 
+    'angular-underscore/filters',
     'pascalprecht.translate', 
     'ui.select', 
     'ui.sortable'

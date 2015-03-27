@@ -28,7 +28,7 @@
     "ng-clip": "~0.2.6",
     "zeroclipboard": "~2.2.0",
     "angular-raven": "~0.5.11",
-    "angular-schema-form-ui-select": "git@github.com:strets123/angular-schema-form-ui-select.git#master",
+    "angular-schema-form-ui-select": "",
     "angular-schema-form": "~0.8.0",
     "angular-ui-codemirror": "~0.2.3",
     "underscore": "~1.8.2",
