@@ -26,26 +26,29 @@
                       "type": "string",
                       "description": "Include publication details if already published"
                   },
+                  //biochemical
+                  //animal model
+                  //cell based
                   "assay_keywords": {
                       "title": "Keywords",
                       "type": "array",
                       "format": "uiselect",
                       "description": "Hit enter or comma to create a new item in the dropdown",
-                      minItems: 1,
-        maxItems: 4,
-        items: [
-          { value: 'one', label: 'label1'},
-          { value: 'two', label: 'label2'},
-          { value: 'three', label: 'label3'},
-          { value: 'four', label: 'label4'},
-          { value: 'five', label: 'label5'}
-        ]
+                      "minItems": 0,
+                      "items": [
+                        { "value": "biochemical", "label": "Biochemical"},
+                        { "value": "animal_model", "label": "Animal Model"},
+                        { "value": "cell_based", "label": "Cell Based"},
+                        { "value": "in_silico", "label": "In Silico"}
+
+                      ]
                   },
                   "assay_type": {
                       "title": "Assay Type",
                       "type": "string",
                       "description": "",
-                      "enum": [
+                      "format": "uiselect",
+                      "items": [
                           {
                               "value": "A",
                               "label": "ADME"
@@ -185,10 +188,10 @@
                                           ]
                                       },
                   "bioactivity_non_standard_units": {
-                                          "title": "Non standard units",
-                                          "type": "string",
-                                          "description": "Enter the non standard units if used"
-                                      },
+                      "title": "Non standard units",
+                      "type": "string",
+                      "description": "Enter the non standard units if used"
+                  },
                   "bioactivities":{
                       "title": "Add bioactivities for each compound that was added in the materials section",
                       "type": "object",
@@ -215,7 +218,7 @@
                                           "description": "Smiles string - for testing purposes"
                                       },
                                       // "data_quality_star_rating":{
-                                        
+
                                       //   "description" : "Scientist's assesment of the quality of the data as a star rating"
 
                                       // }
