@@ -42,6 +42,11 @@ angular.module('chembiohubAssayApp')
             }
         })
 
+        .state('xlstest', {
+          url: '/xlstest',
+          controller: 'XlsCtrl'
+        })
+
         .state('search', {
             url: '/search?project__project_key&flexmatch&with_substructure&similar_to&fpValue&created__gte&created__lte&molfile&smiles&limit&offset',
             //url: '/search',
