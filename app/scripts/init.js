@@ -22,5 +22,6 @@ angular.module('chembiohubAssayApp', [
     'angular-underscore/filters',
     'pascalprecht.translate', 
     'ui.select', 
-    'ui.sortable'
+    'ui.sortable',
+    'ngHandsontable',
   ])

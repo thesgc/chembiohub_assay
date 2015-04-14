@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2 class="blue">XLS Test Page</h2>
+	</div>
+	
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12">
+		<!-- tabs -->
+		<ul class="nav nav-tabs">
+			<li ng-repeat="tab in xlsconfig.experimentForm[0].tabs"  ng-click="$event.preventDefault() || (selected.tab = $index)" ui-sref="" ng-class="{active: selected.tab === $index}" tabindex="$index"><a href="#">{{tab.title}}</a>
+
+		</ul>
+
+		<div class="tab-content">
+			<!-- <div class="form-views" ui-view></div> -->
+			<div class="tab-pane" ng-repeat="tab in xlsconfig.experimentForm[0].tabs" ng-show="selected.tab === $index" ng-class="{active: selected.tab === $index}" >
+				<!-- <div sf-schema="xlsconfig.schema" sf-form="tab.items" sf-model="assay.model"></div> -->
+				<div class="row">	
+					<hot-table
+						settings="{colHeaders: true }"
+						rowHeaders="false"
+						datarows="xlsconfig.assayData"
+						columns="fetchColumns($index)"
+						height="300">
+						<!-- <hot-column ng-repeat="blah in tab.items" data="blah" title="'{{xlsconfig.schema[\"blah\"].title}}'"></hot-column> -->
+
+						<!-- <hot-column data="assay_protocol_ref"          title="'{{xlsconfig.schema.assay_protocol_ref.title}}'"></hot-column>
+						<hot-column data="assay_protocol_steps"        title="'{{xlsconfig.schema.assay_protocol_steps.title}}'" width="700"></hot-column>
+						<hot-column data="assay_cell_line"             title="'{{xlsconfig.schema.assay_cell_line.title}}'" width="200"></hot-column> -->
+					</hot-table>
+				</div>
+				
+
+			</div>
+		</div>
+
+	</div>
+
+</div>

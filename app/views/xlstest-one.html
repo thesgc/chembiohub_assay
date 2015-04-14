@@ -1,0 +1,15 @@
+<h2 class="blue">Hi there</h2>
+
+<hot-table
+	settings="{colHeaders: true }"
+	rowHeaders="false"
+	datarows="xlsconfig.assayData"
+	height="300">
+	<hot-column data="assay_protocol_ref"          title="'{{xlsconfig.schema.assay_protocol_ref.title}}'"></hot-column>
+	<hot-column data="assay_protocol_steps"        title="'{{xlsconfig.schema.assay_protocol_steps.title}}'" width="700"></hot-column>
+	<hot-column data="assay_cell_line"             title="'{{xlsconfig.schema.assay_cell_line.title}}'" width="200"></hot-column>
+</hot-table>
+
+<!-- <div class="row">
+	<div class="col-xs-12">{{ xlsconfig.assayData }}</div>
+</div> -->

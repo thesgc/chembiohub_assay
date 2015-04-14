@@ -1,0 +1,14 @@
+<h2 class="blue">Hello there</h2>
+
+<hot-table
+	settings="{colHeaders: true }"
+	rowHeaders="false"
+	datarows="fetchAssayMaterials"
+	height="300">
+	<hot-column data="assay_protocol_ref"          title="'{{xlsconfig.schema.assay_protocol_ref.title}}'"></hot-column>
+	
+	
+	<hot-column data="material_name"          title="'Name'"></hot-column>
+	<hot-column data="material_manufacturer"        title="'Manufacturer'" width="200"></hot-column>
+	<hot-column data="material_catalogue_number"             title="'Cat No'" width="200"></hot-column>
+</hot-table>

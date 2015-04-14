@@ -32,14 +32,14 @@
                       "format": "uiselect",
                       "description": "Hit enter or comma to create a new item in the dropdown",
                       minItems: 1,
-        maxItems: 4,
-        items: [
-          { value: 'one', label: 'label1'},
-          { value: 'two', label: 'label2'},
-          { value: 'three', label: 'label3'},
-          { value: 'four', label: 'label4'},
-          { value: 'five', label: 'label5'}
-        ]
+                      maxItems: 4,
+                      items: [
+                        { value: 'one', label: 'label1'},
+                        { value: 'two', label: 'label2'},
+                        { value: 'three', label: 'label3'},
+                        { value: 'four', label: 'label4'},
+                        { value: 'five', label: 'label5'}
+                      ]
                   },
                   "assay_type": {
                       "title": "Assay Type",
